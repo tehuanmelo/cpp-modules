@@ -6,7 +6,7 @@
 /*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 01:08:36 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/09 17:48:01 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:37:18 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,16 @@ void PhoneBook::searchContact() {
         for (int i = 0; i < count; i++) 
             array[i].printList(i + 1);
         std::cout << std::endl << "Type index to display the contact or 0 to go back to main menu: ";
-        std::cin >> input;
-        if (input.empty())
+        if (!(std::cin >> input))
             exit(0);
-        if (input == "0") {
+        if (input.length() > 1 || !std::isdigit(input[0])) 
+            continue;
+        index = std::stoi(input);
+        if (index == 0) {
             printMenu();
             std::cin.ignore();
             return;
         }
-        index = std::stoi(input);
     } while (index < 0 || index > count);
     
     printMenu();

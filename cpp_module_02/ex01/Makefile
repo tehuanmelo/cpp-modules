@@ -1,8 +1,8 @@
-NAME = megaphone
+NAME = fixedPoint
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 OBJPATH = ./obj/
-SRC = megaphone.cpp
+SRC = main.cpp Fixed.cpp
 OBJ = $(addprefix $(OBJPATH), $(SRC:.cpp=.o))
 
 .SILENT:

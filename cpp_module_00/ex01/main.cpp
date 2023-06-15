@@ -6,7 +6,7 @@
 /*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 01:08:36 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/09 17:40:26 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:36:00 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int main() {
     PhoneBook phone_book;
     do
     {
-        std::getline(std::cin, command);
-        if(command.empty())
-            exit(0);
+        
+        if(!std::getline(std::cin, command))
+            return 1;
         std::cout << command << std::endl;
         for (size_t i = 0; i < command.length(); i++)
             command[i] = char(std::tolower(command[i]));
