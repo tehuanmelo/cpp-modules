@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:46:02 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/16 18:07:02 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/06/16 22:21:06 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ class Fixed {
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt(void) const;
+
 };
+
+std::ostream& operator<<(std::ostream& COUT, const Fixed& obj);
 
 #endif
