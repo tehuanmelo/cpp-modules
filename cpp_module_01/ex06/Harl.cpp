@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:05:35 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/14 21:54:55 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/22 21:18:06 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void Harl::error() {
 
 Harl::Harl() {}
 
+Harl::~Harl() {}
+
 int getLevelIndex(std::string level) {
 	static const int N = 4;
 	std::string str;
@@ -68,22 +70,22 @@ void Harl::complain(std::string level) {
 	switch (index)
 	{
 	case 0:
-        (obj.*(&Harl::debug))();
-        (obj.*(&Harl::info))();
-        (obj.*(&Harl::warning))();
-        (obj.*(&Harl::error))();
+        obj.debug();
+        obj.info();
+        obj.warning();
+        obj.error();
 		break;
 	case 1:
-        (obj.*(&Harl::info))();
-        (obj.*(&Harl::warning))();
-        (obj.*(&Harl::error))();
+        obj.info();
+        obj.warning();
+        obj.error();
 		break;
 	case 2:
-        (obj.*(&Harl::warning))();
-        (obj.*(&Harl::error))();
+        obj.warning();
+        obj.error();
 		break;
 	case 3:
-        (obj.*(&Harl::error))();
+         obj.error();
 		break;
 	default:
 		break;
