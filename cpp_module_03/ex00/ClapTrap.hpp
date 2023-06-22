@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:58:56 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/19 17:36:26 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/19 18:51:50 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ public:
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
-    std::string getname() {
-        return Name;
-    }
 };
 
 #endif

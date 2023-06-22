@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 01:08:36 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/15 16:36:00 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/06/22 19:36:23 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int main() {
     PhoneBook phone_book;
     do
     {
-        
         if(!std::getline(std::cin, command))
             return 1;
         std::cout << command << std::endl;

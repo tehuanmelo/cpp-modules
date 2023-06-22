@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 01:08:36 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/15 16:37:18 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/06/22 20:52:29 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void PhoneBook::searchContact() {
     std::string input;
     int index;
     do {
+        restartWhileLoop:
         printHeader();
         std::cout << "SEARCH MODE" << std::endl << std::endl;
         std::cout << std::right << std::setw(10) <<  "INDEX" << "|"
@@ -56,8 +57,9 @@ void PhoneBook::searchContact() {
         std::cout << std::endl << "Type index to display the contact or 0 to go back to main menu: ";
         if (!(std::cin >> input))
             exit(0);
-        if (input.length() > 1 || !std::isdigit(input[0])) 
-            continue;
+        for (size_t i = 0; i < input.length(); i++)
+            if (!std::isdigit(input[i]))
+                goto restartWhileLoop;
         index = std::stoi(input);
         if (index == 0) {
             printMenu();
