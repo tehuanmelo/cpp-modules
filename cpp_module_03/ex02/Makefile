@@ -1,8 +1,8 @@
-NAME = scavTrap
+NAME = fragTrap
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 OBJPATH = ./obj/
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp ClapTrap.cpp FragTrap.cpp
 OBJ = $(addprefix $(OBJPATH), $(SRC:.cpp=.o))
 
 .SILENT:
