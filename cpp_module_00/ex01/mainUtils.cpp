@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 01:08:36 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/22 19:34:46 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/24 15:01:06 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ std::string getUserString(std::string title) {
     std::string input;
     do {
         std::cout << title;
-        std::getline(std::cin, input);
-        if (input.empty())
+        if (!std::getline(std::cin, input))
             exit(0);
         if (title == FNAME || title == LNAME)
             input = validateName(input);
