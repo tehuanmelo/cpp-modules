@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 09:33:25 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/12 11:50:09 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/26 14:46:07 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,12 @@ void copyFileContent(std::ifstream& inputfile, std::ofstream& outputfile, std::s
     std::string line;
     int nbrOfLines = getNumberOfLInes(inputfile);
     while (std::getline(inputfile, line)) { //get each line of the file
-        std::stringstream ss(line);
-        std::string word;
-        int wordCount = getNbrOfWords(line);
-        while (ss >> word) {
-            if (word == s1)
-                word = s2;
-            outputfile << word;
-            if (wordCount > 1) {
-                outputfile << ' ';
-                wordCount--;
-            }
+        std::size_t position = line.find(s1);
+        if (position != std::string::npos) {
+            line.erase(position, s1.length());
+            line.insert(position, s2);
         }
+        outputfile << line;
         if (nbrOfLines > 1) {
             outputfile << std::endl;
             nbrOfLines--;

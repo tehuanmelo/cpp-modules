@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 09:33:25 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/10 14:13:42 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/26 14:55:32 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int main(int ac, char **av)
     if (ac == 4) {
         std::string inFileName = av[1], s1 = av[2], s2 = av[3];
         std::ifstream inputfile(inFileName); //Open the infile
-        
+        if (s1.empty() || s2.empty()) {
+            std::cout << "Invalid Input" << std::endl;
+            return 1;
+        }
         if (inputfile.is_open()) {
             std::string outFileName = inFileName + ".replace";
             std::ofstream outputfile(outFileName); // Creates and open the outFile

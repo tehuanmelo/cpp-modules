@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:04:39 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/09 23:16:43 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/26 12:50:23 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int main() {
     for (int i = 0; i < N; i++) {
         zombie[i].announce();
     }
-    delete zombie;
+    delete [] zombie;
 }
