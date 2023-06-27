@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:23:33 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/24 16:06:53 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/27 22:42:58 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ int main() {
     a.takeDamage(4);
     a.beRepaired(10);
     b.highFivesGuys();
-    c.attack("asdf");
 }
