@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:23:33 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/27 22:42:58 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 08:57:43 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main() {
     FragTrap c(b);
     c = a;
     b.attack("fff-78");
-    a.takeDamage(4);
+    a.takeDamage(20);
     a.beRepaired(10);
-    b.highFivesGuys();
+    b.highFiveGuys();
 }

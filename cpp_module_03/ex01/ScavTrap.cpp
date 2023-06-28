@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:52:35 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/27 22:25:51 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 08:50:58 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,30 +50,6 @@ void ScavTrap::attack(const std::string &target) {
         std::cout << "ScavTrap " << Name << " can't attack " << target << "it has no Hit Points." << std::endl;
     else 
         std::cout << "ScavTrap " << Name << " can't attack " << target << "it has no energy Points." << std::endl;
-}
-
-void ScavTrap::takeDamage(unsigned int amount) {
-    if (HitPoints > amount) 
-        HitPoints -= amount;
-    else if (HitPoints > 0)
-        HitPoints = 0;
-    else  {
-        std::cout << "ScavTrap " << Name << " can't suffer damage it's Hit points are already 0." << std::endl;
-        return;
-    }  
-    std::cout << "ScavTrap " << Name << " suffered " << amount << " points of damage" << std::endl;
-        
-}
-
-void ScavTrap::beRepaired(unsigned int amount) {
-    if (EnergyPoints > 0) {
-        HitPoints += amount;
-        EnergyPoints--;
-        std::cout << "ScavTrap " << Name << " is repaired it's Hit Points are " <<  HitPoints << std::endl;
-    }
-    else    
-        std::cout << "ScavTrap " << Name << " can't be repaired it's Energy Points are 0." << std::endl;
-        
 }
 
 void ScavTrap::guardGate() {
