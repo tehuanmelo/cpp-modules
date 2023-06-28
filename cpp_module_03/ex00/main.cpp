@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:23:33 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/19 18:52:03 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 10:13:12 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int main() {
     ClapTrap c(a);
     c = b;
     a.attack("C-3PO");
-    b.takeDamage(5);
-    b.takeDamage(5);
-    b.takeDamage(5);
+    b.takeDamage(10);
     b.beRepaired(5);
 }

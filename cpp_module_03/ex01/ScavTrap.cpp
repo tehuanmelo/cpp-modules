@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:52:35 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/28 08:50:58 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 10:28:16 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-    std::cout << "ScavTrap constructor called" << std::endl;
+    std::cout << YELLOW <<  "ScavTrap constructor called" << RESET_COLOR << std::endl;
     HitPoints = 100;
     EnergyPoints = 50;
     AttackDamage = 20;
@@ -22,11 +22,11 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 
 ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy) {
     Gate = copy.Gate;
-    std::cout << "ScavTrap copy constructor called" << std::endl;
+    std::cout << YELLOW << "ScavTrap copy constructor called" << RESET_COLOR << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& copy) {
-    std::cout << "ScavTrap copy assignment operator called" << std::endl;
+    std::cout << YELLOW << "ScavTrap copy assignment operator called" << RESET_COLOR << std::endl;
     if (this != &copy) {
         Name = copy.Name;
         HitPoints = copy.HitPoints;
@@ -38,27 +38,27 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy) {
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << "ScavTrap " << Name << " destructor called" << std::endl;
+    std::cout << YELLOW << "ScavTrap " << Name << " destructor called" << RESET_COLOR << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target) {
     if (HitPoints > 0 && EnergyPoints > 0) {
         EnergyPoints--;
-        std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << std::endl;
+        std::cout << YELLOW << "ScavTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << RESET_COLOR << std::endl;
     }
     else if (HitPoints == 0 )
-        std::cout << "ScavTrap " << Name << " can't attack " << target << "it has no Hit Points." << std::endl;
+        std::cout << YELLOW << "ScavTrap " << Name << " can't attack " << target << "it has no Hit Points." << RESET_COLOR << std::endl;
     else 
-        std::cout << "ScavTrap " << Name << " can't attack " << target << "it has no energy Points." << std::endl;
+        std::cout << YELLOW << "ScavTrap " << Name << " can't attack " << target << "it has no energy Points." << RESET_COLOR << std::endl;
 }
 
 void ScavTrap::guardGate() {
     if (!Gate)
         Gate = true;
     else {
-        std::cout << "ScavTrap " << Name << " is already guarding the gate." << std::endl;
+        std::cout << YELLOW << "ScavTrap " << Name << " is already guarding the gate." << RESET_COLOR << std::endl;
         return;
     }
-    std::cout << "ScavTrap " << Name << " now is guarding the gate." << std::endl;
+    std::cout << YELLOW << "ScavTrap " << Name << " now is guarding the gate." << RESET_COLOR << std::endl;
     
 }

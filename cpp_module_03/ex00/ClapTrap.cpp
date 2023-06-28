@@ -3,25 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:58:56 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/27 22:18:53 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 10:11:46 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {
-    std::cout << "Default constructor called" << std::endl;
-    Name = "not set";
-    HitPoints = 10;
-    EnergyPoints = 10;
-    AttackDamage = 0;
-}
-
 ClapTrap::ClapTrap(std::string name) {
-    std::cout << "Name constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
     Name = name;
     HitPoints = 10;
     EnergyPoints = 10;

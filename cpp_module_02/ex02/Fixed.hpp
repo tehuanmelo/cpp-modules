@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 21:46:02 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/18 16:01:30 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/27 10:06:42 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Fixed {
         // Overloaded Operators
 
         // Assignment Operator
-        Fixed &operator=(const Fixed& origin);
+        Fixed& operator=(const Fixed& origin);
         
         // Arithmetic operators: +, -, *, and /.
         Fixed operator+(const Fixed& add);

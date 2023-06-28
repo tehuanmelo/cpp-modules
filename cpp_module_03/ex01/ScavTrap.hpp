@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:52:49 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/28 08:50:44 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 10:24:13 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
+
+#define YELLOW "\033[33m"
+#define RESET_COLOR "\033[39m"
 
 class ScavTrap : public ClapTrap
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 22:10:34 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/18 16:03:36 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/27 10:09:47 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
     Fixed a;
-    Fixed const b(Fixed(5.05f) * Fixed(2));
+    Fixed b(Fixed(5.05f) * Fixed(2));
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
     std::cout << a << std::endl;

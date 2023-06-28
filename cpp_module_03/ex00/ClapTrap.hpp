@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:58:56 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/19 18:51:50 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 10:11:03 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ private:
     unsigned int AttackDamage;
     
 public:
-    ClapTrap();
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap& copy);
     ClapTrap& operator=(const ClapTrap& copy);

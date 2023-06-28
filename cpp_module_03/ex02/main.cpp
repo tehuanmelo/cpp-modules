@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 16:23:33 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/06/28 08:57:43 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/06/28 11:23:38 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int main() {
     
-    FragTrap b("XXX-333");
-    FragTrap a("YYY-812");
+    FragTrap a("AAA-123");
+    FragTrap b("BBB-234");
     FragTrap c(b);
     c = a;
-    b.attack("fff-78");
-    a.takeDamage(20);
-    a.beRepaired(10);
-    b.highFiveGuys();
+    a.attack("XXX-345");
+    b.takeDamage(20);
+    b.beRepaired(10);
+    c.highFiveGuys();
 }
