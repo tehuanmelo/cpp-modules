@@ -6,13 +6,15 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:35:45 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/01 16:31:26 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/02 13:23:31 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Animal.hpp"
+#include "../inc/WrongAnimal.hpp"
 #include "../inc/Dog.hpp"
 #include "../inc/Cat.hpp"
+#include "../inc/WrongCat.hpp"
 
 int main()
 {
@@ -49,11 +51,26 @@ int main()
     delete animal2;
     delete animal1;
     
+    std::cout << MAGENTA << "\n\n-----------------------------------\n\n" << RESETCOLOR;
+
+    WrongAnimal *wrongAnimal = new WrongCat();
+
+    std::cout << wrongAnimal->getType() << std::endl;
+    wrongAnimal->makeSound();
+
+    std::cout << "\n\n";
+
+    delete wrongAnimal;
+    
     std::cout << MAGENTA << "\n\n####### STACK TEST ######\n\n" << RESETCOLOR;
 
     Animal animal;
     Dog dog;
     Cat cat;
+    WrongAnimal wrongAnimal2;
+    WrongCat wrongCat;
+    
+    std::cout << "\n\n";
 
     std::cout << animal.getType() << std::endl;
     animal.makeSound();
@@ -63,8 +80,14 @@ int main()
 
     std::cout << cat.getType() << std::endl;
     cat.makeSound();
+    
+    std::cout << wrongAnimal2.getType() << std::endl;
+    wrongAnimal2.makeSound();
 
-     std::cout << "\n\n";
+    std::cout << wrongCat.getType() << std::endl;
+    wrongCat.makeSound();
+    
+    std::cout << "\n\n";
 
     return 0;
 }
