@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:07:51 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/03 17:42:56 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:38:22 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ Cat::Cat() : Animal() {
 Cat::Cat(const Cat& copy) : Animal(copy) {
     std::cout << "Cat class: Copy constructor called" << std::endl;
     brain = new Brain();
-    if (!brain) {
-        std::cout << YELLOW << "Memory Allocation failed" << RESETCOLOR << std::endl;
-        exit(1);
-    }
     *this = copy;
 }
 

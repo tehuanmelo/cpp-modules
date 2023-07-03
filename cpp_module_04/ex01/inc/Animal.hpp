@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:07:51 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/03 17:02:02 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/07/03 20:38:50 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string.h>
-#include <cstdlib>
 
 #define YELLOW "\033[33m"
 #define GREEN "\033[32m"
