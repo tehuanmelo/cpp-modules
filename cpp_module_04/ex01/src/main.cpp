@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:35:45 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/03 15:03:20 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/03 17:56:33 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,24 +50,27 @@ int main()
         std::cout << YELLOW << "Idea " << i << ": " << brain->getIdea(i) << RESETCOLOR << std::endl;
     delete brain;
 
-    std::cout << MAGENTA << "\n\n############## DOG/CAT BRAIN TEST #############\n\n" << RESETCOLOR;
+    std::cout << MAGENTA << "\n\n############## DOG/CAT DEEP COPY TEST #############\n\n" << RESETCOLOR;
     
     Dog dog;
+    Dog dogCopy(dog);
+    Dog dogCopy2;
+    dogCopy2 = dogCopy;
     Cat cat;
 
-    for (int i = 10; i < 20; i++) 
+    for (int i = 10; i < 20; i++) {
         dog.setIdeas(i, "Want bark...");
-    for (int i = 0; i < 20; i++)
-        std::cout << GREEN << "Idea " << i << ": " YELLOW << dog.getIdea(i) << RESETCOLOR << std::endl;
-    
-    for (int i = 10; i < 20; i++) 
+        dogCopy.setIdeas(i, "Want eat... ");
+        dogCopy2.setIdeas(i, "Want run... ");
         cat.setIdeas(i, "Want play...");
-    for (int i = 0; i < 20; i++)
-        std::cout << RED << "Idea " << i << ": " BLUE << cat.getIdea(i) << RESETCOLOR << std::endl;
+    }
         
+    for (int i = 0; i < 20; i++) {
+        std::cout << GREEN << "dog - Idea      " << i << ": " YELLOW << dog.getIdea(i) << RESETCOLOR << std::endl;
+        std::cout << YELLOW << "dogCopy - Idea  " << i << ": " GREEN << dogCopy.getIdea(i) << RESETCOLOR << std::endl;
+        std::cout << MAGENTA << "dogCopy2 - Idea " << i << ": " RED << dogCopy2.getIdea(i) << RESETCOLOR << std::endl;
+        std::cout << RED << "cat Idea        " << i << ": " BLUE << cat.getIdea(i) << RESETCOLOR << std::endl;
+    }
     
-
-    
-        
     return 0;
 }

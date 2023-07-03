@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:07:51 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/02 19:27:35 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/03 17:33:29 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ Dog::Dog() : Animal() {
 
 Dog::Dog(const Dog& copy) : Animal(copy) {
     std::cout << "Dog class: Copy constructor called" << std::endl;
+    this->brain = new Brain();
+    if (!brain) {
+        std::cout << GREEN << "Memory Allocation failed" << RESETCOLOR << std::endl;
+        exit(1);
+    }
     *this = copy;
 }
 
@@ -28,11 +33,6 @@ Dog& Dog::operator=(const Dog& copy) {
     std::cout << GREEN << "Dog class: Copy assignment operator called" << RESETCOLOR << std::endl;
     if (this != &copy) {
         type = copy.type;
-        brain = new Brain();
-        if (!brain) {
-            std::cout << GREEN << "Memory Allocation failed" << RESETCOLOR << std::endl;
-            exit(1);
-        }
         *this->brain = *copy.brain;
     }
     return *this;

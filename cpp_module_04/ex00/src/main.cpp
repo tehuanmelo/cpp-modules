@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:35:45 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/02 13:23:31 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/03 17:52:44 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,13 @@ int main()
     std::cout << MAGENTA << "\n\n-----------------------------------\n\n" << RESETCOLOR;
 
     WrongAnimal *wrongAnimal = new WrongCat();
+    //destructor will be called at the end
+    WrongCat wrongcat;
 
     std::cout << wrongAnimal->getType() << std::endl;
     wrongAnimal->makeSound();
+    std::cout << wrongcat.getType() << std::endl;
+    wrongcat.makeSound();
 
     std::cout << "\n\n";
 

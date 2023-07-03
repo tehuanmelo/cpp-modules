@@ -3,7 +3,7 @@ NAME = animal
 
 # flags
 CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -g3
 
 # directories
 OBJDIR = ./obj/

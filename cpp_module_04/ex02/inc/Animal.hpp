@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:07:51 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/03 15:10:21 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/03 17:36:21 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ class Animal
 {
 protected:
     std::string type;
-    Animal();
+   
 public:
+    Animal();
     Animal(const Animal& copy);
     Animal& operator=(const Animal& copy);
     virtual ~Animal();

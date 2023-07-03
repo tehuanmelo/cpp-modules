@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/02 12:28:34 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/02 13:09:44 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/03 16:35:41 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
     WrongAnimal(const WrongAnimal& copy);
     WrongAnimal& operator=(const WrongAnimal& copy);
     virtual ~WrongAnimal();
-    virtual void makeSound() const;
+    void makeSound() const;
     std::string getType() const;
 };
 
