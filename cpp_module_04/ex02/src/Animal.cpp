@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:07:51 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/03 15:11:19 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/13 15:17:14 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,6 @@ Animal& Animal::operator=(const Animal& copy) {
 Animal::~Animal() {
     std::cout << "Animal class: Destructor called" << std::endl;
 }
-
-// void Animal::makeSound() const {
-//     std::cout << "Unknown animal sound" << std::endl;
-// }
 
 std::string Animal::getType() const {
     return type;
