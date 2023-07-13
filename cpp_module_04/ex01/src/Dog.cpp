@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/01 15:07:51 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/07/03 20:38:31 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/07/13 17:13:01 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ void Dog::makeSound() const{
 }
 
 void Dog::setIdeas(int i, std::string idea) const {
-    if (i < 100)
+    if (i >= 0 && i < 100)
         brain->setIdeas(i, idea);
     else    
         std::cout << GREEN << "Only 100 ideas per brain..." << RESETCOLOR << std::endl;
 }
 
 std::string Dog::getIdea(int i) const {
-    if (i < 100)
+    if (i >= 0 && i < 100)
         return brain->getIdea(i);
     else
         std::cout << GREEN << "Only 100 ideas per brain..." << RESETCOLOR << std::endl;
