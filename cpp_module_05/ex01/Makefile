@@ -5,7 +5,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCDIR = ./src/
 
-SRCFILES = main.cpp Bureaucrat.cpp
+SRCFILES = main.cpp Bureaucrat.cpp Form.cpp
 OBJFILES = $(SRCFILES:.cpp=.o)
 OBJ = $(addprefix $(SRCDIR), $(OBJFILES))
 

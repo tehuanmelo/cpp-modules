@@ -6,32 +6,46 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:11:04 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/09/28 18:31:10 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/09/29 00:42:06 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 int main()
 {
-    try
-    {
-        Bureaucrat a("Peter", 1);
-        Bureaucrat b("Clark", 150);
+    Bureaucrat bureaucrat1("Jack Johnson", 30);
+    Form form1("Salary Letter", 10, 20); 
 
-        
+    std::cout << std::endl;
+    
+   try {
+    std::cout << bureaucrat1 << std::endl;
+    std::cout << form1 << std::endl;
+    form1.beSigned(bureaucrat1);
+    std::cout << std::endl;
+   }
+   catch(const std::exception& e) {
+    std::cerr << form1.getName() << " can't be signed by "
+    << bureaucrat1.getName() << " because " << e.what() << "\n\n";
+   }
+   
+   
+   Bureaucrat Bureaucrat2("Ben Harper", 89);
+   Form form2("Labour contract", 34, 54);
+   
+    std::cout << std::endl;
+    
+   try {
+    std::cout << Bureaucrat2 << std::endl;
+    std::cout << form2 << std::endl;
+    Bureaucrat2.signForm(form2);
+   }
+   catch(const std::exception& e) {
+    std::cerr << Bureaucrat2.getName() << " can't sign the " 
+    << form2.getName() << " because " << e.what() << "\n\n";
+   }
 
-        std::cout << a << std::endl;
-        std::cout << b << std::endl;
-        
-        b.incrementGrade();
-        std::cout << b << std::endl;
-
-        a.incrementGrade();
-
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    return 0;
 }
