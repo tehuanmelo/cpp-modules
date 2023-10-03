@@ -6,32 +6,26 @@
 /*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:11:04 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/03 19:32:24 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:24:55 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/AForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
 
 int main()
 {
-    try
-    {
-        Bureaucrat a("Peter", 1);
-        Bureaucrat b("Clark", 150);
+    Bureaucrat bu("tehuan", 20);
+    ShrubberyCreationForm sh("home");
 
-        
+    bu.signForm(sh);
+    std::cout << sh << std::endl;
+    bu.executeForm(sh);
 
-        std::cout << a << std::endl;
-        std::cout << b << std::endl;
-        
-        b.incrementGrade();
-        std::cout << b << std::endl;
 
-        a.incrementGrade();
 
-    }
-    catch (const std::exception &e)
-    {
-        // std::cerr << e.what() << '\n';
-    }
+
+
+    return 0;
 }

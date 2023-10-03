@@ -6,31 +6,32 @@
 /*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:08:28 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/03 19:32:16 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:02:55 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/AForm.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name) {
-    std::cout << "Constructor called" << std::endl;
     setGrade(grade);
+    std::cout << "Bureaucrat " << "constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : Name(copy.Name) {
-    std::cout << "Copy constructor called" << std::endl;
-    Grade = copy.Grade;
+    this->Grade = copy.Grade;
+    std::cout << "Bureaucrat copy constructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy) {
-    std::cout << "Copy assignment operator constructor called" << std::endl;
     if (this != &copy)
-        Grade = copy.Grade;
+        this->Grade = copy.Grade;
+    std::cout << "Bureaucrat assignment constructor called" << std::endl;
     return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
-    std::cout << "Deconstructor called" << std::endl;
+    std::cout << "Bureaucrat deconstructor called" << std::endl;
 }
 
 void Bureaucrat::setGrade(int grade) {
@@ -38,7 +39,8 @@ void Bureaucrat::setGrade(int grade) {
         throw Bureaucrat::GradeTooHighException();
     else if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
-    Grade = grade; 
+    this->Grade = grade;
+    
 }
 
 std::string Bureaucrat::getName() const {
@@ -55,6 +57,14 @@ void Bureaucrat::incrementGrade() {
 
 void Bureaucrat::decrementGrade() {
     setGrade(Grade + 1);
+}
+
+void Bureaucrat::signForm(AForm &f) {
+    f.beSigned(*this);
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+    form.execute(*this);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
