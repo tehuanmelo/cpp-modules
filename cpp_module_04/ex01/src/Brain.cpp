@@ -36,14 +36,14 @@ Brain::~Brain() {
 }
 
 void Brain::setIdeas(int i, std::string idea) {
-    if (i < 100)
+    if (i >= 0 && i < 100)
         ideas[i] = idea;
     else    
         std::cout << MAGENTA "Only 100 ideas per brain..." RESETCOLOR << std::endl;
 }
 
 std::string Brain::getIdea(int i) const {
-    if (i < 100)
+    if (i >= 0 && i < 100)
         return ideas[i];
     else
         std::cout << MAGENTA "Only 100 ideas per brain..." RESETCOLOR << std::endl;
