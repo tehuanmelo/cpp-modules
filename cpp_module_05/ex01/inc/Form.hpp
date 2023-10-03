@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:47:54 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/09/28 23:48:56 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/09/29 00:44:58 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ public:
     };
 };
 
-std::ostream &operator<<(std::ostream &COUT, const Form &obj);
+std::ostream& operator<<(std::ostream &COUT, const Form &obj);
 
 #endif

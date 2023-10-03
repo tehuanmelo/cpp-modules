@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:55:42 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/09/29 00:33:32 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/09/29 12:08:15 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ std::ostream &operator<<(std::ostream &COUT, const Form &obj) {
             << "Grade required to sign it " << obj.getSignGrade() << std::endl
             << "Grade required to execute it " << obj.getExecGrade() << std::endl
             << "Status: " << signature
-            );
+        );
 }
