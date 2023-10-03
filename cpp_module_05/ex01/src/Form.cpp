@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:55:42 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/09/29 12:08:15 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/03 15:38:47 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void Form::beSigned(const Bureaucrat &b) {
     if (this->IsSigned)
         std::cout << "Form " << getName() << " is already signed" << std::endl;
     else if (b.getGrade() > this->ToSignGrade) 
-        throw Form::GradeTooHighException();
+        throw Form::GradeTooLowException();
     else {
-        setIsSigned(true);
+        this->IsSigned = true;
         std::cout << b.getName() << " has signed the " << getName() << std::endl;
     }
 }
@@ -63,10 +63,6 @@ int Form::getSignGrade() const {
 
 bool Form::getIsSigned() const {
     return this->IsSigned;
-}
-
-void Form::setIsSigned(bool signature) {
-    this->IsSigned = signature;
 }
 
 const char* Form::GradeTooHighException::what() const throw() {

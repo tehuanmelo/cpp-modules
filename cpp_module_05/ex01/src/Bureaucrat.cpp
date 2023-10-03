@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:08:28 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/09/29 00:37:10 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/03 15:34:54 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,7 @@ void Bureaucrat::decrementGrade() {
 }
 
 void Bureaucrat::signForm(Form &f) {
-    if (f.getIsSigned())
-        std::cout << "Form " << getName() << " is already signed" << std::endl;
-    else if (this->getGrade() > f.getSignGrade()) 
-        throw Form::GradeTooLowException();
-    else {
-        f.setIsSigned(true);
-        std::cout << this->getName() << " has signed the " << f.getName() << std::endl;
-    }
+    f.beSigned(*this);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {

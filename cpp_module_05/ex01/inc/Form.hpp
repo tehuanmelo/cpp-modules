@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:47:54 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/09/29 00:44:58 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/03 15:34:20 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ public:
     int getSignGrade() const;
     bool getIsSigned() const;
     
-    void setIsSigned(bool signature);
-
     class GradeTooHighException : public std::exception {
     public:
         virtual const char *what() const throw();

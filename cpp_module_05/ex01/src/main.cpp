@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:11:04 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/01 21:28:38 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/03 15:37:48 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,24 @@ int main()
     std::cout << std::endl;
    }
    catch(const std::exception& e) {
-    std::cerr << form1.getName() << " can't be signed by "
-    << bureaucrat1.getName() << " because form's " << e.what() << "\n\n";
+    std::cerr << bureaucrat1.getName() << " can't sign the " 
+    << form1.getName() << " because " << e.what() << "\n\n";
    }
    
    
-   Bureaucrat Bureaucrat2("Ben Harper", 89);
+   Bureaucrat bureaucrat2("Ben Harper", 89);
    Form form2("Labour contract", 34, 54);
    
     std::cout << std::endl;
     
    try {
-    std::cout << Bureaucrat2 << std::endl;
+    std::cout << bureaucrat2 << std::endl;
     std::cout << form2 << std::endl;
-    Bureaucrat2.signForm(form2);
+    bureaucrat2.signForm(form2);
    }
    catch(const std::exception& e) {
-    std::cerr << Bureaucrat2.getName() << " can't sign the " 
-    << form2.getName() << " because bureaucrat's " << e.what() << "\n\n";
+    std::cerr << bureaucrat2.getName() << " can't sign the " 
+    << form2.getName() << " because " << e.what() << "\n\n";
    }
 
     return 0;
