@@ -5,7 +5,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCDIR = ./src/
 
-SRCFILES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRCFILES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJFILES = $(SRCFILES:.cpp=.o)
 OBJ = $(addprefix $(SRCDIR), $(OBJFILES))
 
@@ -24,6 +24,7 @@ $(NAME):	$(OBJ)
 
 clean:
 	rm -rf $(OBJ)
+	rm -f *_shrubbery
 
 fclean: clean
 	rm -f $(NAME)

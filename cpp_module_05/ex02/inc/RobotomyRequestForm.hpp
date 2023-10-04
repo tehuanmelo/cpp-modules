@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:58:57 by tde-melo          #+#    #+#             */
-/*   Updated: 2023/10/03 21:55:11 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/03 22:37:33 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
     private:
     const std::string Target;
     public:
-    ShrubberyCreationForm(std::string target);
-    ShrubberyCreationForm(const ShrubberyCreationForm& copy);
-    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& copy);
-    ~ShrubberyCreationForm();
+    RobotomyRequestForm(std::string target);
+    RobotomyRequestForm(const RobotomyRequestForm& copy);
+    RobotomyRequestForm& operator=(const RobotomyRequestForm& copy);
+    ~RobotomyRequestForm();
     
     std::string getTarget() const;
 
@@ -31,7 +31,7 @@ class ShrubberyCreationForm : public AForm
         
 };
 
-std::ostream& operator<<(std::ostream &COUT, const ShrubberyCreationForm &obj);
+std::ostream& operator<<(std::ostream &COUT, const RobotomyRequestForm &obj);
 
 
 

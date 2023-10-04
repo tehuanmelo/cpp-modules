@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:01:28 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/03 19:02:09 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/03 21:54:18 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Bureaucrat {
         Bureaucrat(std::string name, int grade);
         Bureaucrat(const Bureaucrat &copy);
         Bureaucrat& operator=(const Bureaucrat &copy);
-        virtual ~Bureaucrat();
+        ~Bureaucrat();
         std::string getName() const;
         int getGrade() const;
         void incrementGrade();

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:47:54 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/03 18:30:28 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/04 21:29:03 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ public:
     
     void beSigned(const Bureaucrat &b);
     
-    // pure virtual function implementation must be in the derived class
-    virtual void execute(Bureaucrat const& executor) const = 0;
-    
     std::string getName() const;
     int getExecGrade() const;
     int getSignGrade() const;
     bool getIsSigned() const;
+    
+    // pure virtual function. Implementation must be in the derived class
+    virtual void execute(Bureaucrat const& executor) const = 0;
+    bool checkFormRequirements(const Bureaucrat& executor) const;
     
     class GradeTooHighException : public std::exception {
     public:
