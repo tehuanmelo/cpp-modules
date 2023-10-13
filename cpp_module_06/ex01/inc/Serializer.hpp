@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 13:17:11 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/12 13:30:36 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/13 20:05:23 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 
 struct Data 
 {

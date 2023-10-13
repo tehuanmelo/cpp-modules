@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:34:11 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/12 12:33:57 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/13 20:44:04 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <limits>
 #include <cstdlib>
+#include <float.h>
 
 struct Convert {
     int _int;
@@ -31,9 +32,9 @@ private:
     ScalarConverter();
     ScalarConverter(const ScalarConverter& copy);
     ScalarConverter& operator=(const ScalarConverter& copy);
+    ~ScalarConverter();
    
 public:
-    ~ScalarConverter();
 
     static void converter(std::string input);
 

@@ -6,7 +6,7 @@
 /*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 13:10:04 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/13 18:58:02 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/13 20:34:28 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ void identify(Base* p) {
         std::cout << "The object has type A" << std::endl;
     else if (dynamic_cast<B*>(p))
         std::cout << "The object has type B" << std::endl;
-    else
+     else if (dynamic_cast<C*>(p))
         std::cout << "The object has type C" << std::endl;
 }
 
 void identify(Base& p) {
-    
+   
+    Base* obj = &p;
+    if (obj == NULL)
+        return;
+       
     try
     {
         A* a = &dynamic_cast<A&>(p);
