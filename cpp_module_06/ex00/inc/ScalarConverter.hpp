@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:34:11 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/11 21:15:28 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/12 12:33:57 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <limits>
 #include <cstdlib>
 
-struct convert {
+struct Convert {
     int _int;
     char _char;
     float _float;
@@ -41,5 +41,15 @@ public:
         const char *what() const throw();
     };
 };
+
+void checkPseudoLiterals(std::string input);
+void isValidInput(std::string input);
+void printOutput(Convert& numbers);
+void printDouble(Convert& numbers);
+void printFloat(Convert& numbers);
+void printInt(Convert& numbers);
+void printChar(Convert& numbers);
+void convertAll(Convert& Convert, std::string input);
+void convertChar(Convert& Convert, std::string input);
 
 #endif
