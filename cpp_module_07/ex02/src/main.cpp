@@ -1,51 +1,62 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 21:03:18 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/15 22:35:05 by tehuanmelo       ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#include <iostream>
 #include "../inc/Array.hpp"
 
-int main() {
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
 
+        numbers.printArrayAddress();
+        tmp.printArrayAddress();
+        test.printArrayAddress();
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
     try
     {
-        Array<int> a(3);
-        Array<int> b(a);
-        Array<int> c(5);
-
-        std::cout << a.getSize() << std::endl;
-        std::cout << b.getSize() << std::endl;
-        std::cout << c.getSize() << std::endl;
-
-        c = b;
-        std::cout << c.getSize() << std::endl;
-
-        a.printArrayAddress();
-        b.printArrayAddress();
-        c.printArrayAddress();
-
-        a.setIndex(10, 5);
-        a.setIndex(2, 23);
-        
-        a.printArray();
-        b.printArray();
-        c.printArray();
+        numbers[-2] = 0;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-    
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
 
+    numbers.printArray();
+    std::cout << std::endl;
+    std::cout << numbers[MAX_VAL - 1] << std::endl;
+
+    delete [] mirror;//
     return 0;
 }

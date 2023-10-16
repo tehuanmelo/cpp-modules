@@ -14,7 +14,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
     : Form("Presidential Pardon Form", 5, 25), Target(target) {
-    std::cout << "Presidential Form constructor called" << std::endl;
+    std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy) : 

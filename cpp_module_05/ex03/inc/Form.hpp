@@ -42,7 +42,7 @@ public:
     int getSignGrade() const;
     bool getIsSigned() const;
     
-    // pure virtual function. Implementation must be in the derived class
+    // pure virtual function.
     virtual void execute(Bureaucrat const& executor) const = 0;
     bool checkFormRequirements(const Bureaucrat& executor) const;
     

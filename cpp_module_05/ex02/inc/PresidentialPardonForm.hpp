@@ -18,17 +18,16 @@
 class PresidentialPardonForm : public AForm
 {
     private:
-    const std::string Target;
+        const std::string Target;
     public:
-    PresidentialPardonForm(std::string target);
-    PresidentialPardonForm(const PresidentialPardonForm& copy);
-    PresidentialPardonForm& operator=(const PresidentialPardonForm& copy);
-    ~PresidentialPardonForm();
-    
-    std::string getTarget() const;
-
-    void execute(Bureaucrat const& executor) const;
+        PresidentialPardonForm(std::string target);
+        PresidentialPardonForm(const PresidentialPardonForm& copy);
+        PresidentialPardonForm& operator=(const PresidentialPardonForm& copy);
+        ~PresidentialPardonForm();
         
+        std::string getTarget() const;
+
+        void execute(Bureaucrat const& executor) const;
 };
 
 std::ostream& operator<<(std::ostream &COUT, const PresidentialPardonForm &obj);

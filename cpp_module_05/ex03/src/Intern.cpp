@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 11:47:17 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/06 12:11:51 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/06 17:59:44 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ Intern::~Intern() {
     std::cout << "Intern deconstructor called" << std::endl;
 }
 
-static Form* makeShrubberyForm(std::string target) {
+Form* makeShrubberyForm(std::string target) {
         return new ShrubberyCreationForm(target);
 }
     
-static Form* makeRobotomyForm(std::string target) {
+Form* makeRobotomyForm(std::string target) {
     return new RobotomyRequestForm(target);
 }
-static Form* makePresidentialForm(std::string target) {
+Form* makePresidentialForm(std::string target) {
     return new PresidentialPardonForm(target);
 }
 
@@ -47,7 +47,7 @@ const char* Intern::FormDoesNotExist::what() const throw() {
 }
 
 Form* Intern::makeForm(std::string formToCreate, std::string target) {
-    Form* (*createFormList[])(std::string) = {makeShrubberyForm, makeRobotomyForm, makePresidentialForm};
+    Form *(*createFormList[])(std::string) = {makeShrubberyForm, makeRobotomyForm, makePresidentialForm};
     std::string formList[] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
     for (int i = 0; i < 3; i++) {
         if (formList[i] == formToCreate) {

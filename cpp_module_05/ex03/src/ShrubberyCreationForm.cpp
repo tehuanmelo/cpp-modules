@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 17:01:40 by tde-melo          #+#    #+#             */
-/*   Updated: 2023/10/05 23:14:23 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/06 17:38:55 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
     if (checkFormRequirements(executor)) {
         std::string fileName = this->Target + "_shrubbery";
         std::fstream outfile;
-        outfile.open(fileName, std::ios::out);
+        outfile.open(fileName.c_str(), std::ios::out);
         if (outfile.is_open()) {
             for (int i = 0; i < 10; i++) {
                 outfile <<

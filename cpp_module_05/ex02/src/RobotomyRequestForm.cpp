@@ -14,7 +14,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
     : AForm("Robotomy Request Form", 45, 72), Target(target) {
-    std::cout << "Robotomy Form constructor called" << std::endl;
+    std::cout << "RobotomyRequestForm called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& copy) : 
@@ -38,10 +38,10 @@ std::string RobotomyRequestForm::getTarget() const {
     return this->Target;
 }
 
-static int robotomy_counter = 0;
+int robotomy_counter = 0;
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const {
     if (this->checkFormRequirements(executor)) {
-        if (!robotomy_counter++ % 2) {
+        if (!(robotomy_counter++ % 2)) {
             std::cout << "DRRRRRRRRRRRLL!!!! " << 
             this->Target << " has been robotomyzed" << std::endl;
         } else {

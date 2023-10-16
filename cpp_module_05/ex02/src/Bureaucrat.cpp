@@ -6,7 +6,7 @@
 /*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 21:08:28 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/03 19:02:55 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/06 19:01:50 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : Name(name) {
     setGrade(grade);
-    std::cout << "Bureaucrat " << "constructor called" << std::endl;
+    std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : Name(copy.Name) {

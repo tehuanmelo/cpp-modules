@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:21:15 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/15 22:34:24 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/16 19:59:35 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Array<T>& Array<T>::operator=(const Array& copy) {
 
 template<typename T>
 Array<T>::~Array() {
-    delete this->array;
+    delete [] this->array;
 };
 
 template<typename T>
@@ -44,7 +44,7 @@ int Array<T>::getSize() const { return this->arraySize; };
 
 template<typename T>
 void Array<T>::printArrayAddress() const {
-    std::cout << array << std::endl;
+    std::cout << this->array << std::endl;
 }
 
 template<typename T>

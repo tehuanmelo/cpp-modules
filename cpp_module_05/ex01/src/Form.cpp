@@ -6,7 +6,7 @@
 /*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:55:42 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/03 15:38:47 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:35:07 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ std::ostream &operator<<(std::ostream &COUT, const Form &obj) {
         signature = "Not Signed";
         
     return (COUT << "Form: " << obj.getName() << std::endl 
-            << "Grade required to sign it " << obj.getSignGrade() << std::endl
-            << "Grade required to execute it " << obj.getExecGrade() << std::endl
+            << "Grade required to sign it: " << obj.getSignGrade() << std::endl
+            << "Grade required to execute it: " << obj.getExecGrade() << std::endl
             << "Status: " << signature
         );
 }
