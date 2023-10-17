@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:21:15 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/16 19:59:35 by tde-melo         ###   ########.fr       */
+/*   Updated: 2023/10/17 15:18:58 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,13 @@ template<typename T>
 Array<T>& Array<T>::operator=(const Array& copy) {
     if (this == &copy)
         return *this;
+    if (this->array)
+        delete [] this->array;
     this->arraySize = copy.arraySize;
     this->array = new T[this->arraySize];
+    for (size_t i = 0; i < copy.arraySize; i++) {
+        this->array[i] = copy.array[i];
+    }
     return *this;
 };
 

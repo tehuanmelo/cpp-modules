@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../inc/Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 7
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -21,6 +21,10 @@ int main(int, char**)
         numbers.printArrayAddress();
         tmp.printArrayAddress();
         test.printArrayAddress();
+
+        numbers.printArray();
+        tmp.printArray();
+        test.printArray();
     }
 
     for (int i = 0; i < MAX_VAL; i++)
