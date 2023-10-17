@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:21:15 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/17 15:18:58 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/17 16:52:33 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Array<T>::Array(unsigned int size) : arraySize(size) {
 
 template<typename T>
 Array<T>::Array(const Array& copy) {
+    this->array = NULL;
     *this = copy;
 };
 

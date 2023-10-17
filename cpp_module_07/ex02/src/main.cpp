@@ -1,9 +1,10 @@
 #include <iostream>
 #include "../inc/Array.hpp"
 
-#define MAX_VAL 7
+#define MAX_VAL 10
 int main(int, char**)
 {
+    
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -15,7 +16,8 @@ int main(int, char**)
     }
     //SCOPE
     {
-        Array<int> tmp = numbers;
+        Array<int> tmp;
+        tmp = numbers;
         Array<int> test(tmp);
 
         numbers.printArrayAddress();
@@ -61,6 +63,8 @@ int main(int, char**)
     std::cout << std::endl;
     std::cout << numbers[MAX_VAL - 1] << std::endl;
 
-    delete [] mirror;//
+    delete [] mirror;
+
+
     return 0;
 }
