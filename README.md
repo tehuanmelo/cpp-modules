@@ -1,3 +1,5 @@
+<p align="center"><img width="768" alt="Screenshot 2023-10-21 at 10 48 29 PM" src="https://github.com/tehuanmelo/cpp-modules/assets/59938530/97b45334-1b29-40a4-93b3-9d53b75f67b3" ></p>
+
 # C++ Projects - 42 School
 
 Welcome to the world of C++ programming at 42 School! In these modules, you'll embark on a journey into the realm of Object-Oriented Programming (OOP) using C++. C++, developed by Bjarne Stroustrup, is a versatile and high-level programming language that extends the capabilities of the C programming language, often referred to as "C with Classes."
