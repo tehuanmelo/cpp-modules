@@ -1,4 +1,5 @@
-<p align="center"><img width="768" alt="Screenshot 2023-10-21 at 10 48 29 PM" src="https://github.com/tehuanmelo/cpp-modules/assets/59938530/97b45334-1b29-40a4-93b3-9d53b75f67b3" ></p>
+<p align="center"><img width="828" alt="Screenshot 2023-10-21 at 10 56 18 PM" src="https://github.com/tehuanmelo/cpp-modules/assets/59938530/381ca7a9-a8b0-49c8-94c9-d364ae5c9438"></p>
+
 
 # C++ Projects - 42 School
 
