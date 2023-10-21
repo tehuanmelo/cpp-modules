@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 19:24:50 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/21 18:40:33 by tehuanmelo       ###   ########.fr       */
+/*   Created: 2023/10/21 18:52:24 by tehuanmelo        #+#    #+#             */
+/*   Updated: 2023/10/21 21:57:07 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-#define EASYFIND_HPP
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 #include <iostream>
-#include <vector>
-#include <list>
 #include <algorithm>
 #include <string>
+#include <vector>
+#include <list>
 
-template<typename T>
-typename T::iterator easyfind(T& container, int value) {
-    typename T::iterator it = std::find(container.begin(), container.end(), value);
-    if (*it == value)
-        return it;
-    throw std::out_of_range("Could not find the element");
-}
+class Span
+{
+private:
+    std::vector<int> container;
+    unsigned int Size;
+
+public:
+    Span();
+    Span(unsigned int n);
+    Span(Span &copy);
+    Span &operator=(Span& copy);
+    ~Span();
+
+    void addNumber(int num);
+    int shortestSpan();
+    int longestSpan();
+    void print();
+};
 
 #endif

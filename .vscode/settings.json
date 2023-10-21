@@ -71,6 +71,7 @@
         "compare": "cpp",
         "concepts": "cpp",
         "filesystem": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "list": "cpp"
     }
 }

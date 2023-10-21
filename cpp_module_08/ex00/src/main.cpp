@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:25:02 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/19 17:56:40 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/21 18:46:34 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,27 @@
 
 int main() {
     
-    try
-    {
+    try {
         std::vector<int> numbers;
-
-        numbers.push_back(1);
-        numbers.push_back(2);
-        numbers.push_back(3);
-        numbers.push_back(4);
-        std::vector<int>::iterator value;
-        value = easyfind(numbers, 1);
-        std::cout << *value << std::endl;
-        *value = 42;
-        std::cout << numbers[0] << std::endl;
+        for (int i = 1; i < 11; i++)
+            numbers.push_back(i);
+        std::vector<int>::iterator it;
+        it = easyfind(numbers, 10);
+        std::cout << *it << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+    
+    try {
+        std::list<int> numbers;
+        for (int i = 1; i < 11; i++)
+            numbers.push_back(i);
+        std::list<int>::iterator it;
+        it = easyfind(numbers, 10);
+        std::cout << *it << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
     }
-    return 0;
 }
 
 
