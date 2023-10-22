@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:52:24 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/21 21:57:07 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/10/22 18:35:52 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 #include <string>
 #include <vector>
 #include <list>
+#include <climits>
+#include <time.h>
 
 class Span
 {
 private:
-    std::vector<int> container;
+    std::vector<unsigned int> container;
     unsigned int Size;
 
 public:
@@ -33,6 +35,7 @@ public:
     ~Span();
 
     void addNumber(int num);
+    void addNumber(unsigned int min, unsigned int max);
     int shortestSpan();
     int longestSpan();
     void print();
