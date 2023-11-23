@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 OBJDIR = ./obj/
 SRCDIR = ./src/
 
-SRC = main.cpp 
+SRC = main.cpp BitcoinExchange.cpp
 OBJ = $(addprefix $(OBJDIR), $(SRC:.cpp=.o))
 
 all:	$(OBJDIR) $(NAME) 
@@ -29,4 +29,4 @@ fclean:	clean
 re: fclean all
 
 run: 
-	@ ./$(NAME)
+	@ ./$(NAME) input.txt
