@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:09:18 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/12/23 19:31:50 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/12/23 22:58:16 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ std::string trimString(const std::string &str)
     return str.substr(begin, last - begin + 1);
 }
 
-bool isValidDate(const std::string &date)
+bool isValidDate(const std::string &date, std::string &btcDate)
 {
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
     {
@@ -157,7 +157,10 @@ bool isValidDate(const std::string &date)
         }
     }
     if (day >= 1 && day <= maxDays)
+    {
+        btcDate = date;
         return true;
+    }
     std::cerr << ERROR_MESSAGE << date << std::endl;
     return false;
 }
@@ -223,6 +226,6 @@ bool validateLineInput(std::string line, BtcData &btcRate)
         std::cerr << ERROR_MESSAGE << value << std::endl;
         return false;
     }
-    btcRate.date = date;
-    return isValidDate(date) && isValidValue(value, btcRate.value);
+    // btcRate.date = date;    
+    return isValidDate(date, btcRate.date) && isValidValue(value, btcRate.value);
 }

@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:09:27 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/11/23 15:07:44 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/12/23 23:12:28 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ typename T::const_iterator findMatch(const T &container, const std::string &date
 {
     typename T::const_iterator it = container.find(date);
     if (container.empty())
-        return container.end();
+    {
+        std::cerr << RED << "Error: data is empty." << RESET << std::endl;
+        exit(1);
+    }
     else if (it != container.end())
         return it;
     else
