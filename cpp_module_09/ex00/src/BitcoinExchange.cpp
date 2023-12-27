@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:09:18 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/12/23 22:58:16 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/12/27 23:18:21 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 Btc::Btc()
 {
     this->readDataBase("data.csv");
+};
+
+Btc::Btc(std::string input)
+{
+    this->readDataBase("data.csv");
+    this->loadInput(input);
 };
 
 Btc::~Btc(){};
@@ -36,6 +42,18 @@ Btc &Btc::operator=(Btc &copy)
     return *this;
 };
 
+void Btc::getLowerDataDate()
+{
+    std::map<std::string, double>::const_iterator it = this->dataBase.begin();
+    std::map<std::string, double>::const_iterator minIt = this->dataBase.begin();
+    for (; it != this->dataBase.end(); ++it)
+    {
+        if (it->first < minIt->first)
+            minIt = it;
+    }
+    this->lowerDataDate = minIt->first;
+}
+
 void Btc::setDataBase(std::string date, double value)
 {
     this->dataBase.insert(std::make_pair(date, value));
@@ -45,7 +63,10 @@ void Btc::readDataBase(std::string filePath)
 {
     std::ifstream inputFile(filePath.c_str());
     if (!inputFile.is_open())
+    {
         std::cerr << "Error: Couldn't open the database" << RESET << std::endl;
+        exit(1);
+    }
     std::string line;
     std::string date;
     double value;
@@ -58,7 +79,7 @@ void Btc::readDataBase(std::string filePath)
             continue;
         }
         size_t firstComma = line.find_first_of(',');
-        size_t lastComma = line.find_first_of(',');
+        size_t lastComma = line.find_last_of(',');
         if (firstComma == std::string::npos || firstComma != lastComma || line.find_first_not_of("0123456789-,. ") != std::string::npos)
         {
             std::cerr << "Error: Invalid data input => " << line << std::endl;
@@ -76,6 +97,7 @@ void Btc::readDataBase(std::string filePath)
         }
         setDataBase(date, value);
     }
+    this->getLowerDataDate();
     inputFile.close();
 }
 
@@ -83,7 +105,10 @@ void Btc::loadInput(std::string filePath)
 {
     std::ifstream inputFile(filePath.c_str());
     if (!inputFile.is_open())
+    {
         std::cerr << "Error: Couldn't open the input file" << std::endl;
+        exit(1);
+    }
     std::string line;
     bool atFirstLine = true;
     BtcData btcRate;
@@ -110,7 +135,7 @@ void Btc::printDataBase()
     }
 }
 
-std::string trimString(const std::string &str)
+std::string Btc::trimString(const std::string &str)
 {
     size_t begin = str.find_first_not_of(" \t\n\r\f\v");
     size_t last = str.find_last_not_of(" \t\n\r\f\v");
@@ -124,9 +149,9 @@ std::string trimString(const std::string &str)
     return str.substr(begin, last - begin + 1);
 }
 
-bool isValidDate(const std::string &date, std::string &btcDate)
+bool Btc::isValidDate(const std::string &date, std::string &btcDate)
 {
-    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+    if (date < lowerDataDate || date.length() != 10 || date[4] != '-' || date[7] != '-')
     {
         std::cerr << ERROR_MESSAGE << date << std::endl;
         return false;
@@ -165,7 +190,7 @@ bool isValidDate(const std::string &date, std::string &btcDate)
     return false;
 }
 
-bool isValidValue(const std::string &value, double &btcValue)
+bool Btc::isValidValue(const std::string &value, double &btcValue)
 {
     if (value.find_first_not_of("-0123456789.") != std::string::npos || value.find_first_of("0123456789") == std::string::npos)
     {
@@ -176,12 +201,12 @@ bool isValidValue(const std::string &value, double &btcValue)
     size_t dotLast = value.find_last_of(".");
     size_t dashFirst = value.find_first_of("-");
     size_t dashLast = value.find_last_of("-");
-    if (dotFirst != dotLast || dotFirst == value.length() - 1 || dotFirst == 0 || dashFirst != dashLast || dashFirst == value.length() - 1)
+    if (dotFirst != dotLast || dotFirst == value.length() - 1 || dashFirst != dashLast || dashFirst == value.length() - 1)
     {
         std::cerr << ERROR_MESSAGE << value << std::endl;
         return false;
     }
-    int num;
+    double num;
     try
     {
         num = static_cast<double>(atof(value.c_str()));
@@ -191,7 +216,7 @@ bool isValidValue(const std::string &value, double &btcValue)
         std::cerr << e.what() << '\n';
     }
 
-    if (num == 0)
+    if (num == 0.0)
     {
         std::cerr << ERROR_MESSAGE << num << std::endl;
         return false;
@@ -210,7 +235,7 @@ bool isValidValue(const std::string &value, double &btcValue)
     return true;
 }
 
-bool validateLineInput(std::string line, BtcData &btcRate)
+bool Btc::validateLineInput(std::string line, BtcData &btcRate)
 {
     size_t barFirst = line.find_first_of("|");
     size_t barLast = line.find_last_of("|");
@@ -226,6 +251,6 @@ bool validateLineInput(std::string line, BtcData &btcRate)
         std::cerr << ERROR_MESSAGE << value << std::endl;
         return false;
     }
-    // btcRate.date = date;    
+    // btcRate.date = date;
     return isValidDate(date, btcRate.date) && isValidValue(value, btcRate.value);
 }

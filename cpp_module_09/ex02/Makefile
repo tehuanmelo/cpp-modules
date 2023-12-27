@@ -29,4 +29,5 @@ fclean:	clean
 re: fclean all
 
 run: 
-	@ ./$(NAME) `jot -r 5 1 1000 | tr "\n" " "`
+	# @ ./$(NAME) `jot -r 10 1 1000 | tr "\n" " "`
+	@ ./$(NAME) `shuf -i 1-3000 -n 5000 | tr "\n" " "`

@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 20:26:02 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/12/26 23:13:26 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/12/27 21:00:49 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ PmergeMe::~PmergeMe() {}
 
 void PmergeMe::parsing()
 {
+    long num;
     int i = 0;
     while (this->unsorted[++i])
     {
@@ -56,8 +57,11 @@ void PmergeMe::parsing()
             if (!isdigit(this->unsorted[i][j]))
                 error();
         }
-        vec.push_back(atoi(this->unsorted[i]));
-        deq.push_back(atoi(this->unsorted[i]));
+        num = atoll(this->unsorted[i]);
+        if (num > INT_MAX)
+            error();
+        vec.push_back(num);
+        deq.push_back(num);
     }
 }
 
@@ -84,17 +88,21 @@ void PmergeMe::sort()
     end = clock();
     durationDeq = (end - start) * 1000.0 / CLOCKS_PER_SEC;
 
-    std::cout << "Before: ";
+    std::cout << GREEN << "Before: " << RESET;
     printUnsorted();
-    std::cout << "After:  ";
+    std::cout << GREEN << "After:  " << RESET;
     printVector();
-    std::cout << "time to process a range of " << this->vec.size() << " elements with std::vector<int>: " << std::fixed << std::setprecision(5) << durationVec << " us" << std::endl;
-    std::cout << "time to process a range of " << this->deq.size() << " elements with std::deque<int>:  " << std::fixed << std::setprecision(5) << durationDeq << " us" << std::endl;
+    std::cout << "time to process a range of " << GREEN << this->vec.size() << RESET 
+    << " elements with " << GREEN << "std::vector<int>: " << RESET << std::fixed << std::setprecision(5) << durationVec << " us" << std::endl;
+    
+    std::cout << "time to process a range of " << GREEN << this->deq.size() << RESET 
+    << " elements with " << GREEN << "std::deque<int>:  " << RESET << std::fixed << std::setprecision(5) << durationDeq << " us" << std::endl;
 }
 
 void error()
 {
-    std::cout << "Error:" << std::endl;
+    std::cout << RED << "Error" << RESET << std::endl;
+    exit(1);
 }
 
 // -------------------------------- //

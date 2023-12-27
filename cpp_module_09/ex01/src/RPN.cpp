@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:09:18 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/11/29 20:56:18 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/12/27 22:04:05 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,40 @@ RPN::RPN()
 {
 }
 
-RPN::RPN(const RPN& copy)
+RPN::RPN(const std::string input)
+{
+    this->readInput(input);
+}
+
+RPN::RPN(const RPN &copy)
 {
     *this = copy;
 }
 
-RPN& RPN::operator=(const RPN& copy)
+RPN &RPN::operator=(const RPN &copy)
 {
     if (this == &copy)
         return *this;
-    this->_stack = copy._stack;
+    if (!this->stack.empty())
+        this->stack.clear();
+    for (std::list<double>::const_iterator it = copy.stack.begin(); it != copy.stack.end(); it++)
+        this->stack.push_back(*it);
     this->result = copy.result;
-    return *this; 
+    return *this;
 }
 
 RPN::~RPN()
 {
+}
+
+void RPN::printResult()
+{
+    // this condition is to make sure when to print integer and floats
+    double value = static_cast<int>(this->getStackTop());
+    if (value == this->getStackTop())
+        std::cout << value << std::endl;
+    else
+        std::cout << this->getStackTop() << std::endl;
 }
 
 bool RPN::calculate(const double &n1, const double &n2, const int &op)
@@ -53,16 +71,16 @@ bool RPN::calculate(const double &n1, const double &n2, const int &op)
         this->result = n1 / n2;
         break;
     }
-    this->_stack.push(this->result);
+    this->stack.push_back(this->result);
     return true;
 }
 
-bool RPN::readInput(const std::string &input)
+void RPN::readInput(const std::string &input)
 {
     double n1, n2;
     int operands = 0, operators = 0;
     if (input.find_first_not_of("0123456789-+*/ ") != std::string::npos)
-        return false;
+        error();
     for (size_t i = 0; i < input.length(); ++i)
     {
         if (isspace(input[i]))
@@ -70,27 +88,33 @@ bool RPN::readInput(const std::string &input)
         else if (isdigit(input[i]))
         {
             operands++;
-            this->_stack.push(input[i] - '0');
+            this->stack.push_back(input[i] - '0');
         }
         else
         {
-            if (this->_stack.size() < 2)
-                return false;
+            if (this->stack.size() < 2)
+                error();
             operators++;
             char op = input[i];
-            n2 = this->_stack.top();
-            this->_stack.pop();
-            n1 = this->_stack.top();
-            this->_stack.pop();
+            n2 = this->stack.back();
+            this->stack.pop_back();
+            n1 = this->stack.back();
+            this->stack.pop_back();
             if (!this->calculate(n1, n2, op))
-                return false;
+                error();
         }
     }
 
-    return operators + 1 == operands;
+    (operators + 1 == operands) ? this->printResult() : error();
 }
 
 double RPN::getStackTop()
 {
-    return this->_stack.top();
+    return this->stack.back();
+}
+
+void error()
+{
+    std::cout << RED << "Error" << RESET << std::endl;
+    exit(1);
 }

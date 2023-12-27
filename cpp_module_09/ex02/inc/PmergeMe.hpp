@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 18:20:04 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/12/26 23:12:57 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/12/27 21:09:00 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include <ctime>
 #include <iomanip>
 #include <cstdlib>
+#include <climits>
+
+#define RED "\x1b[31m"
+#define GREEN "\x1b[32m"
+#define RESET "\x1b[0m"
 
 class PmergeMe
 {

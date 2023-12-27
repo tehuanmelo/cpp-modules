@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:09:39 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/11/25 13:44:51 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2023/12/27 22:09:18 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int main(int ac, char **av)
 {
     if (ac == 2)
-    {
-        Btc bit;
-        bit.loadInput(av[1]);
-    }
+        Btc bit(av[1]);
     else
         std::cout << "Error: Could not open file." << std::endl;
     return 0;
