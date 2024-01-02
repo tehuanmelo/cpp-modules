@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:09:27 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/12/27 22:52:07 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2024/01/02 16:22:20 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,9 @@ public:
     bool isValidDate(const std::string &date, std::string &btcDate);
     bool isValidValue(const std::string &value, double &btcValue);
     bool validateLineInput(std::string line, BtcData &btcRate);
+    std::map<std::string, double>::const_iterator findMatch(const std::map<std::string, double> &container, const std::string &date);
 };
 
-template <typename T>
-typename T::const_iterator findMatch(const T &container, const std::string &date)
-{
-    typename T::const_iterator it = container.find(date);
-    if (container.empty())
-    {
-        std::cerr << RED << "Error: data is empty." << RESET << std::endl;
-        exit(1);
-    }
-    else if (it != container.end())
-        return it;
-    else
-    {
-        it = container.begin();
-        while (it != container.end() && it->first < date)
-            it++;
-        return --it;
-    }
-    return container.end();
-}
+
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
+/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:09:18 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/12/27 23:18:21 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2024/01/02 16:22:02 by tde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void Btc::loadInput(std::string filePath)
         }
         if (line.empty() || !validateLineInput(line, btcRate))
             continue;
-        std::map<std::string, double>::const_iterator it = findMatch(this->dataBase, btcRate.date);
+        std::map<std::string, double>::const_iterator it = this->findMatch(this->dataBase, btcRate.date);
         std::cout << it->first << " => " << btcRate.value << " = " << it->second * btcRate.value << std::endl;
     }
 }
@@ -253,4 +253,24 @@ bool Btc::validateLineInput(std::string line, BtcData &btcRate)
     }
     // btcRate.date = date;
     return isValidDate(date, btcRate.date) && isValidValue(value, btcRate.value);
+}
+
+std::map<std::string, double>::const_iterator Btc::findMatch(const std::map<std::string, double> &container, const std::string &date)
+{
+    if (container.empty())
+    {
+        std::cerr << RED << "Error: data is empty." << RESET << std::endl;
+        exit(1);
+    }
+    std::map<std::string, double>::const_iterator it = container.find(date);
+    if (it != container.end())
+        return it;
+    else
+    {
+        it = container.begin();
+        while (it != container.end() && it->first < date)
+            it++;
+        return --it;
+    }
+    return container.end();
 }
