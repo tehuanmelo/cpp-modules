@@ -6,7 +6,7 @@
 /*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:09:18 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/12/27 22:04:05 by tehuanmelo       ###   ########.fr       */
+/*   Updated: 2024/01/04 00:30:01 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ void RPN::readInput(const std::string &input)
     {
         if (isspace(input[i]))
             continue;
-        else if (isdigit(input[i]))
+        else if (isdigit(input[i]) && isspace(input[i + 1]))
         {
             operands++;
             this->stack.push_back(input[i] - '0');
         }
-        else
+        else if(!isdigit(i) && isspace(input[i - 1]))
         {
             if (this->stack.size() < 2)
                 error();
@@ -103,6 +103,8 @@ void RPN::readInput(const std::string &input)
             if (!this->calculate(n1, n2, op))
                 error();
         }
+        else
+            error();
     }
 
     (operators + 1 == operands) ? this->printResult() : error();
