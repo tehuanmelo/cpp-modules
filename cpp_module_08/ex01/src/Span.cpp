@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 21:34:28 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/22 18:25:54 by tde-melo         ###   ########.fr       */
+/*   Updated: 2024/07/22 14:12:12 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void Span::addNumber(unsigned int min, unsigned int max)
     if (container.size() == Size)
         throw std::runtime_error("Container is full.");
     while (container.size() != Size)
-        container.push_back((rand() % max) + min);
+        container.push_back(rand() % (max - min + 1) + min);
 }
 
 int Span::shortestSpan()

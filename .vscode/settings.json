@@ -1,5 +1,16 @@
 {
     "files.associations": {
+        "*.ejs": "html",
+        "*.js": "javascript",
+        "*.jsx": "javascriptreact",
+        "*.xml": "html",
+        "*.svg": "html",
+        "*.html": "html",
+        "django-html": "html",
+        "**/*.html": "html",
+        "**/templates/**/*.html": "django-html",
+        "**/base_templates/**/*.html": "django-html",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements",
         "string": "cpp",
         "__bit_reference": "cpp",
         "__config": "cpp",
@@ -76,6 +87,7 @@
         "__tree": "cpp",
         "map": "cpp",
         "regex": "cpp",
-        "charconv": "cpp"
+        "charconv": "cpp",
+        "execution": "cpp"
     }
 }

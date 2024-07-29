@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-melo <tde-melo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tehuanmelo <tehuanmelo@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:25:02 by tehuanmelo        #+#    #+#             */
-/*   Updated: 2023/10/22 18:55:49 by tde-melo         ###   ########.fr       */
+/*   Updated: 2024/07/22 13:48:45 by tehuanmelo       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main() {
         std::cout << std::endl;
         
         std::vector<int>::iterator it;
-        it = easyfind(numbers, 10);
+        it = easyfind(numbers, 19);
         
         std::cout << *it << std::endl;
         
